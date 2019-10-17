@@ -8,8 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +51,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void dicebutton(View view) {
+       tv= (TextView) this.findViewById(R.id.textView);
+
+        Random rand = new Random();
+        tv.setText(Integer.toString( rand.nextInt(6)+1));
     }
 }
