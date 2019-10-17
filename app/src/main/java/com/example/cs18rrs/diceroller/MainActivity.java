@@ -8,12 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     TextView tv;
-
+    EditText inputtext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,16 @@ public class MainActivity extends AppCompatActivity {
        tv= (TextView) this.findViewById(R.id.textView);
 
         Random rand = new Random();
-        tv.setText(Integer.toString( rand.nextInt(6)+1));
+        int number =rand.nextInt(6)+1;
+        tv.setText(Integer.toString(number));
+        inputtext = (EditText) this.findViewById(R.id.textbox);
+        String num = inputtext.getText().toString();
+        if(num.equals ( Integer.toString(number))&&Integer.parseInt(num) <7){
+            tv.setText("congratulations: "+ number);
+
+        }
+
+
+
     }
 }
